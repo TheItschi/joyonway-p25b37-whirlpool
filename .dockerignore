@@ -1,0 +1,7 @@
+**/__pycache__
+**/*.pyc
+backend/venv
+backend/.env
+docs
+firmware
+.git

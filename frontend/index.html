@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Whirlpool</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Whirlpool">
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+<div id="app">
+<div class="hd">
+  <div class="lg">
+    <svg class="li" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="8" fill="var(--ac)"/>
+      <g fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.92)" stroke-width="1.3">
+        <circle cx="10" cy="19" r="4.2"/><circle cx="19" cy="13" r="3.2"/><circle cx="22" cy="21" r="2.6"/><circle cx="14" cy="8" r="2"/><circle cx="24" cy="9" r="1.4"/><circle cx="7" cy="10" r="1.2"/>
+      </g>
+      <g fill="rgba(255,255,255,.85)"><circle cx="8.5" cy="17.5" r=".8"/><circle cx="17.9" cy="11.9" r=".6"/><circle cx="21.1" cy="20.1" r=".5"/></g>
+      <rect x="6" y="25" width="20" height="4" rx="2" fill="rgba(0,0,0,.32)"/>
+    </svg>
+    <div><h1>Whirlpool</h1><span id="cl">Verbinde&#8230;</span></div>
+  </div>
+  <div class="hr">
+    <div class="sd" id="sd"></div>
+    <button class="tb" id="themeBtn" type="button"><span id="ti">&#9728;</span><span id="tl">Hell</span></button>
+  </div>
+</div>
+
+<div class="mn">
+  <div id="eb" hidden></div>
+
+  <div class="tc">
+    <div class="b1"></div><div class="b2"></div>
+    <svg class="bub" id="bubbles" width="210" height="110" viewBox="0 0 210 110" fill="none" aria-hidden="true">
+      <g class="bb" style="--d:0.0s"><circle cx="172" cy="30" r="17" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/><circle cx="165.5" cy="23.5" r="2.9" fill="rgba(255,255,255,0.80)"/></g>
+      <g class="bb" style="--d:0.6s"><circle cx="128" cy="22" r="9" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.50)" stroke-width="1.3"/><circle cx="124.6" cy="18.6" r="1.5" fill="rgba(255,255,255,0.75)"/></g>
+      <g class="bb" style="--d:1.2s"><circle cx="192" cy="78" r="9" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.50)" stroke-width="1.3"/><circle cx="188.6" cy="74.6" r="1.5" fill="rgba(255,255,255,0.75)"/></g>
+      <g class="bb" style="--d:1.8s"><circle cx="150" cy="66" r="13" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.45)" stroke-width="1.3"/><circle cx="145.1" cy="61.1" r="2.2" fill="rgba(255,255,255,0.70)"/></g>
+      <g class="bb" style="--d:2.4s"><circle cx="108" cy="50" r="5.5" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.45)" stroke-width="1.3"/><circle cx="105.9" cy="47.9" r="0.9" fill="rgba(255,255,255,0.70)"/></g>
+    </svg>
+    <div class="tl">Aktuelle Temperatur</div>
+    <div class="tv" id="iv">&#8211;<sup>&#176;C</sup></div>
+    <div class="tr">
+      <div class="ts"><div class="tsl">Sollwert</div><div class="tsv" id="sv">&#8211; <span>&#176;C</span></div></div>
+      <div class="ts"><div class="tsl">Status</div><div class="hi"><div class="hd2" id="hd"></div><div class="ht" id="ht">&#8211;</div></div></div>
+      <div class="ts"><div class="tsl">D&#252;sen</div><div class="hi"><div class="hd2" id="jd"></div><div class="ht" id="jt">&#8211;</div></div></div>
+    </div>
+    <div class="chips">
+      <div class="chip" id="chipOzone" hidden><span class="hd2" id="coDot"></span><span id="coTxt">Ozon auto</span></div>
+      <div class="chip" id="chipLight"><span class="hd2" id="clDot"></span><span>Licht</span></div>
+    </div>
+  </div>
+
+  <div class="cd">
+    <div class="cl">Steuerung</div>
+    <div class="seg seg2 sm" id="modeSeg" hidden>
+      <button type="button" data-mode="auto">Zeitgesteuert</button>
+      <button type="button" data-mode="manual">Manuell</button>
+    </div>
+    <div class="bg">
+      <button class="pb off" id="heaterBtn" type="button">
+        <svg class="pi" viewBox="0 0 22 22" fill="none"><path d="M11 2c1 3-3 5-3 9a4 4 0 0 0 8 0c0-2-1-3-1-3s-1 2-2 2c0-3-1-6-2-8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 20h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span id="heaterLbl">Heizung ein</span>
+      </button>
+      <button class="pb off" id="lightBtn" type="button">
+        <svg class="pi" viewBox="0 0 22 22" fill="none"><path d="M7.5 15.5c-1.5-1.2-2.5-3-2.5-5a6 6 0 1 1 12 0c0 2-1 3.8-2.5 5v1.5h-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 20h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span id="lightLbl">Licht ein</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="cd" id="jetsCard">
+    <div class="cl">Massaged&#252;sen</div>
+    <div class="seg" id="jetsSeg">
+      <button type="button" data-target="off">Aus</button>
+      <button type="button" data-target="low">Niedrig</button>
+      <button type="button" data-target="high">Hoch</button>
+    </div>
+  </div>
+
+  <div class="cd" id="colorCard" hidden>
+    <div class="cl">Lichtfarbe</div>
+    <div class="sw" id="swatches"></div>
+  </div>
+
+  <div class="cd" id="ozoneCard" hidden>
+    <div class="cl">Ozon</div>
+    <div class="row">
+      <span>Manueller Modus</span>
+      <label class="switch"><input type="checkbox" id="ozoneMode"><span class="slider"></span></label>
+    </div>
+    <div class="row" id="ozoneManualRow" hidden>
+      <span>Ozon aktiv</span>
+      <label class="switch"><input type="checkbox" id="ozoneManual"><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <div class="cd" id="modeCard" hidden>
+    <div class="cl">Zeitpläne</div>
+    <div id="modeList"></div>
+    <div id="modeEd" hidden></div>
+    <button class="ab2" id="modeNew" type="button">+ Neuer Zeitplan (aus aktuellem Stand)</button>
+  </div>
+
+  <div class="cd">
+    <div class="cl">Temperaturverlauf</div>
+    <div class="cw"><canvas id="cv"></canvas><div class="ce" id="ce">Warte auf Messwerte&#8230;</div></div>
+  </div>
+
+  <div class="cd">
+    <div class="cl">Solltemperatur</div>
+    <div class="st">
+      <div class="sd2"><span id="sv2" style="color:var(--tx);font-size:36px">&#8211;</span><span>&#176;C</span></div>
+      <div class="sb"><button class="ta" id="tDown" type="button">&#8722;</button><button class="ta" id="tUp" type="button">+</button></div>
+    </div>
+    <input type="range" min="10" max="40" step="1" value="36" id="sl">
+    <div class="sl"><span id="slMin">10&#176;C</span><span id="slMax">40&#176;C</span></div>
+    <button class="ab2" id="applyTemp" type="button">Solltemperatur &#252;bernehmen</button>
+  </div>
+
+  <details class="cd" id="diag">
+    <summary>Diagnose</summary>
+    <div class="dg">
+      <div><label>Modell</label><span id="dgModel">&#8211;</span></div>
+      <div><label>Bridge</label><span class="mono" id="dgBridge">&#8211;</span></div>
+      <div><label>Spa-Uhr</label><span id="dgClock">&#8211;</span></div>
+      <div><label>Letzte Daten</label><span id="dgLast">&#8211;</span></div>
+      <div><label>Broadcast / Sync</label><span class="mono" id="dgFrames">&#8211;</span></div>
+      <div><label>Domoticz</label><span id="dgDz">&#8211;</span></div>
+      <div><label>CRC-Fehler / unbekannt</label><span class="mono" id="dgErr">&#8211;</span></div>
+    </div>
+    <button class="ab2" id="syncTime" type="button">Uhrzeit synchronisieren</button>
+  </details>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js?v=9"></script>
+</body>
+</html>

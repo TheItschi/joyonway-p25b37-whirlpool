@@ -1,0 +1,23 @@
+services:
+  hottub:
+    build: .
+    container_name: hottub-web-app
+    restart: unless-stopped
+    ports:
+      # Host port 8050 -> container port 8000 (fixed, see Dockerfile).
+      # (8060 was already taken by another local service.)
+      - "8050:8000"
+    volumes:
+      # Gespeicherte Modi (modes.json) überleben Neustarts/Rebuilds.
+      - ./data:/data
+    environment:
+      # IP/Port of the ESP8266 RS485-TCP bridge on your network.
+      HOTTUB_BRIDGE_HOST: "192.168.100.210"
+      HOTTUB_BRIDGE_PORT: "8899"
+      # "P25B37" (default, this project's target) or "P25B85".
+      HOTTUB_MODEL: "P25B37"
+      # "1" = Düsen springen direkt auf die Zielstufe (am Pool verifiziert); "0" = Sequenz Aus->Niedrig->Hoch.
+      HOTTUB_JETS_DIRECT: "1"
+      # Zeitzone für den automatischen Uhrenabgleich (Abweichung > 30 s); "0" schaltet ihn ab.
+      HOTTUB_TZ: "Europe/Berlin"
+      HOTTUB_AUTO_TIME_SYNC: "1"
