@@ -42,7 +42,7 @@ Cloud, kein Internet, keine Joyonway-App nötig.
   Auto-Direction-Modul)
 - 5-V-Regler (z. B. Festspannungsregler/Step-down), gespeist aus CN23 V+
 - Widerstände: 1 kΩ (2×) und 2 kΩ (1×)
-- 4-poliges Anschlusskabel für CN23 (COM1)
+- 4-poliges Anschlusskabel für CN23 (COM1..3, was frei ist)
 
 ### Anschluss
 
