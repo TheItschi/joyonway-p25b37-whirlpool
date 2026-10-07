@@ -47,7 +47,7 @@ Cloud, kein Internet, keine Joyonway-App nötig.
 ### Anschluss
 
 1. Whirlpool-Hauptsicherung ausschalten, Steuerbox öffnen.
-2. COM-Port **CN23** (COM1) suchen. Pinbelegung (4-polig): **V+**, **B**,
+2. COM-Port **CN23** (COM1..3, was frei ist) suchen. Pinbelegung (4-polig): **V+**, **B**,
    **A**, **GND** (laut Deckelschema der P25B85, gemessen: V+ = 12 V).
 3. Verkabelung:
 
