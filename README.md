@@ -5,6 +5,8 @@ Joyonway-P25B37-Steuerung (getestet mit Touchpad PB554, Board-/Panel-Version
 1.8). Kommunikation läuft komplett im lokalen Netz über RS485 — keine
 Cloud, kein Internet, keine Joyonway-App nötig.
 
+<img width="444" height="1195" alt="image" src="https://github.com/user-attachments/assets/106ee190-c9f6-465e-ba1a-5d15f8d58cd5" />
+
 ## Architektur
 
 ```
